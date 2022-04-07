@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import LandingPage from "./Pages/SearchingPage/SearchingPage";
+import AdminPage from "./Pages/AdminPage/AdminPage";
+import AuctionsContext from "./Helper/AuctionsContext";
 import { GetAuctions } from "./API/Get";
-import AuctionsContext from "./Contexts/AuctionsContext";
-import LandingPage from "./Pages/LandingPage/LandingPage";
-
-import newCard from "./Card";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const [data, setData] = useState({});
   useEffect(() => {
-    if (Object.keys(data).length < 2) {
-      GetAuctions(setData);
-    }
-  }, [data]);
+    GetAuctions(setData);
+  }, []);
 
   return (
     <div className="app">
       <AuctionsContext.Provider value={data}>
-        <LandingPage />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/admin" element={<AdminPage />} />
+          </Routes>
+        </BrowserRouter>
       </AuctionsContext.Provider>
     </div>
   );
