@@ -18,8 +18,16 @@ function CardInfo({ card }) {
         <div className="card-info-tabname">{card.tab_name}</div>
       </div>
       <div className="card-info-prices-wrapper">
-        <CardPrice auctions={card.xbox_auctions} system={"XBOX"} />
-        <CardPrice auctions={card.ps_auctions} system={"PSN"} />
+        <CardPrice
+          className="card-info-prices"
+          auctions={card.xbox_auctions}
+          system={"XBOX"}
+        />
+        <CardPrice
+          className="card-info-prices"
+          auctions={card.ps_auctions}
+          system={"PSN"}
+        />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { GetSettings } from "../../../API/Get";
+import { GetSettings } from "../../API/Get";
 
 function Blacklister() {
   const [config, setConfig] = useState({});

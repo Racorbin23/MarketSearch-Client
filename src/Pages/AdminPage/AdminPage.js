@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import CardEditor from "./CardEditor/CardEditor";
-import Blacklister from "./Blacklister/Blacklister";
+import CardEditor from "../../Helper/CardEditor/CardEditor";
+import Blacklister from "../../Helper/Blacklister/Blacklister";
 import "./AdminPage.css";
 
 function AdminPage() {

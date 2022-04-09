@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import LandingPage from "./Pages/SearchingPage/SearchingPage";
+import LandingPage from "./Pages/LandingPage/LandingPage";
 import AdminPage from "./Pages/AdminPage/AdminPage";
 import AuctionsContext from "./Helper/AuctionsContext";
 import { GetAuctions } from "./API/Get";
