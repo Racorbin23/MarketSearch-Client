@@ -1,7 +1,7 @@
-import Reace, { useState } from "react";
-import "./Card.css";
+import React, { useState } from "react";
 
 import CloseIcon from "../../images/close-icon.svg";
+import "./Card.css";
 
 function Card({ card }) {
   const [open, setOpen] = useState(false);

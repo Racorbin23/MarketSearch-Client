@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import LandingPage from "./Pages/LandingPage/LandingPage";
-import AdminPage from "./Pages/AdminPage/AdminPage";
-import AuctionsContext from "./Helper/AuctionsContext";
-import { GetAuctions } from "./API/Get";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AuctionsContext from "./Helper/AuctionsContext";
+
+import LandingPage from "./Pages/LandingPage/LandingPage";
+
+import { GetAuctions } from "./API/Get";
 
 function App() {
   const [data, setData] = useState({});
@@ -17,7 +18,6 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/admin" element={<AdminPage />} />
           </Routes>
         </BrowserRouter>
       </AuctionsContext.Provider>

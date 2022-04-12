@@ -1,15 +1,19 @@
 import axios from "axios";
 
+const IP = "192.168.1.25";
+const PORT = "3001";
+const URL = `http://${IP}:${PORT}/`;
+
 function GetAuctions(setData) {
-  axios.get("http://192.168.1.25:3001/cards/getAuctions").then((res) => {
+  axios.get(URL + "cards/getAuctions").then((res) => {
     setData(res.data);
   });
 }
 
 function GetSettings(setData) {
-  axios.get("http://192.168.1.25:3001/settings/get").then((res) => {
+  axios.get(URL + "settings/get").then((res) => {
     setData(res.data);
   });
 }
 
-export { GetAuctions, GetSettings };
+export { GetAuctions, GetSettings, URL };

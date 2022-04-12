@@ -1,4 +1,5 @@
 import axios from "axios";
+import { URL } from "./Get";
 
 function UpdateSettings(
   blacklisted_collection_names,
@@ -7,7 +8,7 @@ function UpdateSettings(
   active
 ) {
   axios
-    .post("http://192.168.1.25:3001/settings/updateProfile", {
+    .post(URL + "settings/updateProfile", {
       blacklisted_collection_names: blacklisted_collection_names,
       blacklisted_page_names: blacklisted_page_names,
       blacklisted_tab_names: blacklisted_tab_names,
@@ -20,7 +21,7 @@ function UpdateSettings(
 
 function SetConfigActive(config_name, active) {
   axios
-    .post("http://192.168.1.25:3001/settings/setActive", {
+    .post(URL + "settings/setActive", {
       name: config_name,
       active: active,
     })
