@@ -17,7 +17,7 @@ function App() {
       <AuctionsContext.Provider value={data}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/MarketSearch-Client" element={<LandingPage />} />
           </Routes>
         </BrowserRouter>
       </AuctionsContext.Provider>

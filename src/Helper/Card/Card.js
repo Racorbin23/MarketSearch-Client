@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import { URL } from "../../API/Get";
 import CloseIcon from "../../images/close-icon.svg";
 import "./Card.css";
 
@@ -108,7 +109,7 @@ function CardImage({ card }) {
   return (
     <img
       className="card-img"
-      src={`http://192.168.1.25:3001/images/${card.player_name}-${card.collection_name}-${card.page_name}-${card.tab_name}.png`}
+      src={`${URL}${card.player_name}-${card.collection_name}-${card.page_name}-${card.tab_name}.png`}
       alt="PLAYER"
     />
   );
