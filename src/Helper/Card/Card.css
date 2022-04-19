@@ -1,133 +1,3 @@
-@media only screen and (max-width: 750px) and (min-width: 550px) {
-  .card-info-wrapper {
-    flex-direction: column;
-  }
-
-  .card-opened-wrapper {
-    width: 105vw !important;
-    height: 120vh !important;
-    margin-top: -15vh !important;
-
-    border-radius: 0px !important;
-  }
-
-  .card-opened-wrapper {
-    padding-left: 5%;
-    padding-top: 5%;
-  }
-
-  .card-opened-wrapper img {
-    width: 200px;
-    height: 220px;
-    padding-left: 5%;
-    padding-top: 5%;
-  }
-
-  .card-opened-prices {
-    margin-left: -40px;
-    margin-top: 35px !important;
-    margin-bottom: 10px;
-  }
-
-  .card-opened-close {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-items: center;
-    position: fixed;
-    width: 40px !important;
-    height: 40px !important;
-    padding-left: 200px !important;
-    padding-right: 200px !important;
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
-    margin-top: 750px;
-    margin-left: 110px;
-    background-color: rgba(125, 89, 252, 1);
-    border-radius: 50px;
-
-    transition: 0.3s all;
-  }
-
-  .card-opened-info {
-    margin-top: 50px !important;
-  }
-
-  .card-img {
-    width: 225px !important;
-    margin-top: 20px !important;
-  }
-}
-
-@media only screen and (max-width: 550px) {
-  .card-opened-prices {
-    margin-top: 100px !important;
-    margin-left: -200px !important;
-  }
-
-  .card-info-wrapper {
-    flex-direction: column;
-  }
-
-  .card-opened-wrapper {
-    width: 105vw !important;
-    height: 120vh !important;
-    margin-top: -15vh !important;
-
-    border-radius: 0px !important;
-  }
-
-  .card-opened-wrapper {
-    padding-left: 5%;
-    padding-top: 5%;
-  }
-
-  .card-opened-wrapper img {
-    width: 200px;
-    height: 220px;
-    padding-left: 5%;
-    padding-top: 5%;
-  }
-
-  .card-opened-close {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-items: center;
-    position: fixed;
-    width: 40px !important;
-    height: 40px !important;
-    padding-left: 80px !important;
-    padding-right: 80px !important;
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
-    margin-top: 750px;
-    margin-left: 100px;
-    background-color: rgba(125, 89, 252, 1);
-    border-radius: 50px;
-
-    transition: 0.3s all;
-  }
-
-  .card-opened-top {
-    margin-top: 20px;
-  }
-
-  .card-opened-info {
-    height: 20vh;
-  }
-}
-
-@media only screen and (min-width: 750px) {
-  .card-opened-wrapper {
-    margin-left: 10vw;
-  }
-
-  .card-img {
-    border-radius: 20px 0px 0px 0px !important;
-  }
-}
-
 .card-wrapper {
   display: flex;
   flex-direction: row;
@@ -288,4 +158,158 @@
   margin-top: 50px;
   font-size: 1.75rem;
   font-weight: 600;
+}
+
+.migrate-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  background-color: #fbab7e;
+  background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
+}
+.migrate-items {
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 5px;
+  margin: 5px;
+
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.migrate-card-img {
+  width: 10vw;
+}
+
+@media only screen and (max-width: 750px) and (min-width: 550px) {
+  .card-info-wrapper {
+    flex-direction: column;
+  }
+
+  .card-opened-wrapper {
+    width: 105vw !important;
+    height: 120vh !important;
+    margin-top: -15vh !important;
+
+    border-radius: 0px !important;
+  }
+
+  .card-opened-wrapper {
+    padding-left: 5%;
+    padding-top: 5%;
+  }
+
+  .card-opened-wrapper img {
+    width: 200px;
+    height: 220px;
+    padding-left: 5%;
+    padding-top: 5%;
+  }
+
+  .card-opened-prices {
+    margin-left: -40px;
+    margin-top: 35px !important;
+    margin-bottom: 10px;
+  }
+
+  .card-opened-close {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    position: fixed;
+    width: 40px !important;
+    height: 40px !important;
+    padding-left: 200px !important;
+    padding-right: 200px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    margin-top: 750px;
+    margin-left: 110px;
+    background-color: rgba(125, 89, 252, 1);
+    border-radius: 50px;
+
+    transition: 0.3s all;
+  }
+
+  .card-opened-info {
+    margin-top: 50px !important;
+  }
+
+  .card-img {
+    width: 225px !important;
+    margin-top: 20px !important;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .card-opened-prices {
+    margin-top: 100px !important;
+    margin-left: -200px !important;
+  }
+
+  .card-info-wrapper {
+    flex-direction: column;
+  }
+
+  .card-opened-wrapper {
+    width: 105vw !important;
+    height: 120vh !important;
+    margin-top: -15vh !important;
+
+    border-radius: 0px !important;
+  }
+
+  .card-opened-wrapper {
+    padding-left: 5%;
+    padding-top: 5%;
+  }
+
+  .card-opened-wrapper img {
+    width: 200px;
+    height: 220px;
+    padding-left: 5%;
+    padding-top: 5%;
+  }
+
+  .card-opened-close {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    position: fixed;
+    width: 40px !important;
+    height: 40px !important;
+    padding-left: 80px !important;
+    padding-right: 80px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    margin-top: 750px;
+    margin-left: 100px;
+    background-color: rgba(125, 89, 252, 1);
+    border-radius: 50px;
+
+    transition: 0.3s all;
+  }
+
+  .card-opened-top {
+    margin-top: 20px;
+  }
+
+  .card-opened-info {
+    height: 20vh;
+  }
+}
+
+@media only screen and (min-width: 750px) {
+  .card-opened-wrapper {
+    margin-left: 10vw;
+  }
+
+  .card-img {
+    border-radius: 20px 0px 0px 0px !important;
+  }
 }

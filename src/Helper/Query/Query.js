@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import AuctionsContext from "../AuctionsContext";
 
-import Card from "../Card/Card";
+import { Card } from "../Card/Card";
 import "./Query.css";
 
 function Query({ target }) {

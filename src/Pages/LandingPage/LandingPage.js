@@ -1,23 +1,26 @@
 import React, { useContext, useState } from "react";
 import AuctionContext from "../../Helper/AuctionsContext";
 import Query from "../../Helper/Query/Query";
-import "./LandingPage.css";
 
+import { GetLowestPrice } from "../../Helper/Card/Card";
 import SearchIcon from "../../images/search-icon.svg";
+import "./LandingPage.css";
 
 function LandingPage() {
   const [target, setTarget] = useState("");
   return (
     <div className="landing-wrapper">
       <Navbar target={target} setTarget={setTarget} />
-      <Query target={target} />
+      {target.length > 3 ? (
+        <Query target={target} />
+      ) : (
+        <MostExpensiveCardShowcase />
+      )}
     </div>
   );
 }
 
 function Navbar({ target, setTarget }) {
-  const auctions = useContext(AuctionContext);
-
   return (
     <div className="landing-nav">
       <div className="nav-search-bar">
@@ -35,8 +38,27 @@ function Navbar({ target, setTarget }) {
   );
 }
 
-function MostExpensiveCards() {
-  return <div>MostExpensiveCards</div>;
+function findMostExpensiveCards(list) {
+  const cards = [];
+  const minimum = 50000;
+
+  if (list.length > 0) {
+    list.forEach((card) => {
+      if (
+        GetLowestPrice(card.ps_auctions).buyout > minimum ||
+        GetLowestPrice(card.xbox_auctions).buyout > minimum
+      ) {
+        cards.push(card);
+      }
+    });
+  }
+
+  return cards;
+}
+
+function MostExpensiveCardShowcase() {
+  const auctions = findMostExpensiveCards(useContext(AuctionContext));
+  return <div>REPLACE WITH AUCTIONS</div>;
 }
 
 export default LandingPage;
