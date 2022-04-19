@@ -1,6 +1,8 @@
 # Market Search - Client
 The Client is the Front End portion of the Market Searcher application. Its used to connect to the backend and make the data that was scrapped searchable without having to open the game.
 
+
+
 ## Getting Started
 
 ### Depenedencies
