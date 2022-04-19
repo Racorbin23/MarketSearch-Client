@@ -1,3 +1,5 @@
-Market Search Front End
+# Market Search - Client
+The Client is the Front End portion of the Market Searcher application. It is made using React framework and connects to the Backend portion using the axios library.
 
-This is the Front end portion of our application which connects to our backend to access all of the auction data.
+## Usage
+After cloning the repo you will need to connect to a local version of the Backend portion of this project.
