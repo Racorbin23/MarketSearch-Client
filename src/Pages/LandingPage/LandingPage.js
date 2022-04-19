@@ -58,7 +58,7 @@ function findMostExpensiveCards(list) {
 
 function MostExpensiveCardShowcase() {
   const auctions = findMostExpensiveCards(useContext(AuctionContext));
-  return <div>REPLACE WITH AUCTIONS</div>;
+  return <div></div>;
 }
 
 export default LandingPage;

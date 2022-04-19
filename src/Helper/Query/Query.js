@@ -10,7 +10,7 @@ function Query({ target }) {
   if (Object.keys(data).length !== 0 && target.length >= 3) {
     data.forEach((item, i) => {
       console.log();
-      if (item.player_name.includes(target)) {
+      if (item.player_name.toLowerCase().includes(target.toLowerCase())) {
         items.push(<Card key={i} card={item} />);
       }
     });

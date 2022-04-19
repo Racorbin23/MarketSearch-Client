@@ -5,6 +5,7 @@ import EditableCard from "./EditableCard";
 import ClosedCard from "./ClosedCard";
 
 import CloseIcon from "../../images/close-icon.svg";
+import UnknownCard from "../../images/unknown-card.png";
 import "./Card.css";
 
 function Card({ card }) {
@@ -97,7 +98,7 @@ function CardInfo({ card, opened }) {
 }
 
 function CardPrice({ auctions, system }) {
-  var price = GetLowestPrice(auctions).buyout;
+  var price = GetLowestPrice(auctions);
 
   if (parseInt(price)) {
     price = parseInt(price).toLocaleString("en");
@@ -114,29 +115,50 @@ function CardImage({ card }) {
     <img
       className="card-img"
       src={`${URL}${card.player_name}-${card.collection_name}-${card.page_name}-${card.tab_name}.png`}
-      alt="PLAYER"
+      alt=""
     />
   );
 }
 
 function GetLowestPrice(data) {
-  let lowest = data[0];
+  let lowest = "None";
   if (Object.keys(data).length) {
     data.forEach((item) => {
-      if (lowest.buyout == "-1") {
-        lowest = item;
+      if (lowest === "None") {
+        if (GetPrice(item) !== "-1") {
+          lowest = GetPrice(item);
+        }
       }
-      if (
-        parseInt(item.buyout) < parseInt(lowest.buyout) &&
-        item.buyout !== "-1"
-      ) {
-        lowest = item;
+
+      if (parseInt(lowest) >= 100000) {
+        if (
+          GetPrice(item) !== "-1" &&
+          parseInt(GetPrice(item)) > parseInt(lowest)
+        ) {
+          lowest = GetPrice(item);
+        }
+      } else {
+        if (
+          GetPrice(item) !== "-1" &&
+          parseInt(GetPrice(item)) < parseInt(lowest)
+        ) {
+          lowest = GetPrice(item);
+        }
       }
     });
-  } else {
-    lowest = { buyout: "None!" };
   }
+
   return lowest;
+}
+
+function GetPrice(card_data) {
+  if (card_data.buyout !== "-1") {
+    return card_data.buyout;
+  } else if (parseInt(card_data.bid) >= 100000) {
+    return card_data.bid;
+  } else {
+    return "-1";
+  }
 }
 
 export { Card, CardImage, CardPrice, CardInfo, GetLowestPrice };
