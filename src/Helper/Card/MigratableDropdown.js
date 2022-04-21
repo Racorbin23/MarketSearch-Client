@@ -5,9 +5,6 @@ import { MigrateAuctions } from "../../API/Post";
 import { URL } from "../../API/Get";
 
 function MigrateDropdown({ card, setMigrate }) {
-  // Show list of cards as buttons and allow user to select one
-  // Selected card will be used to migrate the passed cards data to
-  // The card card will be deleted
   const players = useContext(AuctionsContext);
   const [target, setTarget] = useState("");
   const cards = [];

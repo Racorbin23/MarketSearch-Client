@@ -2,7 +2,8 @@ import React, { useState } from "react";
 
 import { URL } from "../../API/Get";
 import EditableCard from "./EditableCard";
-import ClosedCard from "./ClosedCard";
+
+import { GetLowestPrice } from "../Functions/GetPrice";
 
 import CloseIcon from "../../images/close-icon.svg";
 import UnknownCard from "../../images/unknown-card.png";
@@ -48,17 +49,6 @@ function OpenedCard({ card, setOpen }) {
   }
 }
 
-function CardClose({ setOpen }) {
-  return (
-    <img
-      className="card-opened-close"
-      src={CloseIcon}
-      alt={"Close"}
-      onClick={() => setOpen(false)}
-    />
-  );
-}
-
 function CardInfo({ card, opened }) {
   if (opened) {
     return (
@@ -97,6 +87,15 @@ function CardInfo({ card, opened }) {
   }
 }
 
+function ClosedCard({ card, setOpen }) {
+  return (
+    <div className="card-wrapper" onClick={() => setOpen(true)}>
+      <CardImage card={card} className="player-img" />
+      <CardInfo card={card} className="card-info" />
+    </div>
+  );
+}
+
 function CardPrice({ auctions, system }) {
   var price = GetLowestPrice(auctions);
 
@@ -120,45 +119,15 @@ function CardImage({ card }) {
   );
 }
 
-function GetLowestPrice(data) {
-  let lowest = "None";
-  if (Object.keys(data).length) {
-    data.forEach((item) => {
-      if (lowest === "None") {
-        if (GetPrice(item) !== "-1") {
-          lowest = GetPrice(item);
-        }
-      }
-
-      if (parseInt(lowest) >= 100000) {
-        if (
-          GetPrice(item) !== "-1" &&
-          parseInt(GetPrice(item)) > parseInt(lowest)
-        ) {
-          lowest = GetPrice(item);
-        }
-      } else {
-        if (
-          GetPrice(item) !== "-1" &&
-          parseInt(GetPrice(item)) < parseInt(lowest)
-        ) {
-          lowest = GetPrice(item);
-        }
-      }
-    });
-  }
-
-  return lowest;
+function CardClose({ setOpen }) {
+  return (
+    <img
+      className="card-opened-close"
+      src={CloseIcon}
+      alt={"Close"}
+      onClick={() => setOpen(false)}
+    />
+  );
 }
 
-function GetPrice(card_data) {
-  if (card_data.buyout !== "-1") {
-    return card_data.buyout;
-  } else if (parseInt(card_data.bid) >= 100000) {
-    return card_data.bid;
-  } else {
-    return "-1";
-  }
-}
-
-export { Card, CardImage, CardPrice, CardInfo, GetLowestPrice };
+export { Card, CardImage, CardPrice, CardInfo };
