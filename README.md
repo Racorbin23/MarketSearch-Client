@@ -1,6 +1,10 @@
 # Market Search Application
 The is the Client which is the front-end portion of the Market Searcher application. It's used to connect to the backend and make the data that was scrapped using the Bot portion, searchable. The data is scrapped using the Bot repo for this project which interacts with the video game. It navigates through the menus using OpenCV to detect certain objects and scans every auction posted and uploads it to the backend. 
 
+
+https://user-images.githubusercontent.com/56977500/164351498-910c0679-a7c7-4805-9170-a68ca5aa935b.mp4
+
+
 ## Scraper / MarketSearch-Bot
 This script navigates the games menus and go through every card and scans every auction of the card and process's the data and sends it to the backend.
 Scraping the data is possible by first cropping the data from the initial image and we process the image we get from the game using OpenCV. With OpenCV we can apply different masks to the image and adjust it to make the data we want appear easier to interpret. We do this to increase the accuracy so PyTesseract can run a basic model to interpret the text from the image we give it. Once the data is collected, it is sent to the backend to be accessed by our frontend.
