@@ -2,7 +2,10 @@
 The is the Client which is the front-end portion of the Market Searcher application. It's used to connect to the backend and make the data that was scrapped using the Bot portion, searchable. The data is scrapped using the Bot repo for this project which interacts with the video game. It navigates through the menus using OpenCV to detect certain objects and scans every auction posted and uploads it to the backend. 
 
 
-https://user-images.githubusercontent.com/56977500/164351498-910c0679-a7c7-4805-9170-a68ca5aa935b.mp4
+
+
+https://user-images.githubusercontent.com/56977500/164351576-363d916e-b108-4768-9f19-0f7efae552ff.mp4
+
 
 
 ## Scraper / MarketSearch-Bot
