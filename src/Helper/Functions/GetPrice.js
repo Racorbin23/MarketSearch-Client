@@ -2,25 +2,21 @@ function GetLowestPrice(data) {
   let lowest = "None";
   if (Object.keys(data).length) {
     data.forEach((item) => {
+      const item_price = GetPrice(item);
+      const item_price_int = parseInt(item_price);
+      const lowest_int = parseInt(lowest);
       if (lowest === "None") {
-        if (GetPrice(item) !== "-1") {
-          lowest = GetPrice(item);
+        if (item_price !== "-1") {
+          lowest = item_price;
         }
       }
 
-      if (parseInt(lowest) >= 100000) {
+      if (lowest_int >= 100000) {
         if (
-          GetPrice(item) !== "-1" &&
-          parseInt(GetPrice(item)) > parseInt(lowest)
+          item_price !== "-1" &&
+          (item_price_int > lowest_int || item_price_int < item_price)
         ) {
-          lowest = GetPrice(item);
-        }
-      } else {
-        if (
-          GetPrice(item) !== "-1" &&
-          parseInt(GetPrice(item)) < parseInt(lowest)
-        ) {
-          lowest = GetPrice(item);
+          lowest = item_price;
         }
       }
     });
