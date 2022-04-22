@@ -23,7 +23,7 @@ function Navbar({ target, setTarget }) {
       <img className="nav-logo-img" src={LogoIcon} alt="Logo" />
       <SearchField target={target} setTarget={setTarget} />
       <img
-        title="Visit the Github Repository!"
+        title="Come see how the project works!"
         className="nav-logo-img"
         src={GithubLogo}
         alt="Github"
