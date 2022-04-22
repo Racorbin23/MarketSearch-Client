@@ -16,7 +16,7 @@ Scraping the data is possible by first cropping the data from the initial image 
 ## Front-end + Back-end / MarketSearch-Client + MarketSearch-Server
 Deployed with Heroku and Github page which you can test live at https://racorbin23.github.io/MarketSearch-Client/
 
-![alt text](https://github.com/Racorbin23/MarketSearch-Client/blob/master/src/images/example.png?raw=true)
+![example](https://user-images.githubusercontent.com/56977500/164600739-ab0da7de-ef2c-4777-a13b-1eecca7bff72.PNG)
 
 ## Getting Started
 
