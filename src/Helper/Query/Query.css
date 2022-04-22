@@ -11,3 +11,13 @@
   overflow-x: hidden;
   overflow-y: scroll;
 }
+
+.query-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.query-wrapper {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
