@@ -53,7 +53,7 @@
 .nav-input:focus,
 .nav-input:active,
 .nav-input:hover {
-  width: 60vw;
+  width: 30vw;
   transition: 0.5s all ease-in;
 }
 
