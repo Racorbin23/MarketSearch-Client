@@ -10,13 +10,17 @@ const Query = ({ target }) => {
 
   // Check if data is loaded and
   // if target is large enough to search
-  if (Object.keys(data).length !== 0 && target.length >= 3) {
-    data.forEach((item, i) => {
-      // Loop through all cards and check if names match
-      if (item.player_name.toLowerCase().includes(target.toLowerCase())) {
-        items.push(<Card key={i} card={item} />);
-      }
-    });
+  if (Object.keys(data).length !== 0) {
+    if (target.length >= 3) {
+      data.forEach((item, i) => {
+        // Loop through all cards and check if names match
+        if (item.player_name.toLowerCase().includes(target.toLowerCase())) {
+          items.push(<Card key={i} card={item} />);
+        }
+      });
+    }
+  } else {
+    items.push(<div>Loading...</div>);
   }
   return <div className="query-wrapper">{items}</div>;
 };
