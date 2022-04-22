@@ -4,6 +4,8 @@
   color: white;
   background-color: rgb(34, 34, 34);
 
+  width: 150px;
+
   margin: 20px;
   border-radius: 25px 25px 0 0;
 
@@ -46,8 +48,8 @@
 }
 
 .card-img {
-  height: 200px;
-  width: 100%;
+  height: 210px;
+  width: 150px;
 
   -webkit-user-drag: none;
   -khtml-user-drag: none;
