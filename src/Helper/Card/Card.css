@@ -37,10 +37,21 @@
   justify-content: space-between;
 
   margin: 4px;
+
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-select: none;
 }
 
 .card-img {
   height: 200px;
   width: 100%;
-  border-radius: 25px 25px 0 0;
+
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-select: none;
 }
