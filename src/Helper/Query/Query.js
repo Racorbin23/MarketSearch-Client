@@ -20,7 +20,7 @@ const Query = ({ target }) => {
       });
     }
   } else {
-    items.push(<div>Loading...</div>);
+    items.push(<div class="loader"></div>);
   }
   return <div className="query-wrapper">{items}</div>;
 };
