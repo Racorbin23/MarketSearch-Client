@@ -1,21 +1,22 @@
 import React, { useContext } from "react";
-import AuctionsContext from "../../Helper/AuctionsContext.js";
-
-import { Card } from "../Card/Card.js";
-import { GetAllPageNames } from "../../Helper/Functions/CardHelper.js";
-import { ShowcaseByPageName } from "../Showcase/Showcase.tsx";
-
 import "./Query.css";
 
-const Query = ({ target }) => {
-  const data = useContext(AuctionsContext);
+import { CardInterface } from "../../Helper/InterfaceObjects.js";
+import AuctionsContext from "../../Helper/AuctionsContext.js";
+
+import { Card } from "../Card/Card";
+import { GetAllPageNames } from "../../Helper/Functions/CardHelper.js";
+import { ShowcaseByPageName } from "../Showcase/Showcase";
+
+const Query = ({ target }: { target: string }) => {
+  const data: any = useContext(AuctionsContext);
   const items = [];
 
   // Check if data is loaded and
   // if target is large enough to search
   if (Object.keys(data).length !== 0) {
     if (target.length >= 3) {
-      data.forEach((item, i) => {
+      data.forEach((item: CardInterface, i: number) => {
         // Loop through all cards and check if names match
         if (item.player_name.toLowerCase().includes(target.toLowerCase())) {
           items.push(<Card key={i} card={item} />);
@@ -25,7 +26,7 @@ const Query = ({ target }) => {
       // Return showcases if target is too small
       // ["ALTER EGO", "ALTER EGO MASKED"]
       const page_names = GetAllPageNames(data);
-      const items = page_names.map((page_name, i) => {
+      const items = page_names.map((page_name: string, i: number) => {
         // TODO - Set limit elsewhere
         if (i < 15) {
           return <ShowcaseByPageName key={i} page_name={page_name} />;

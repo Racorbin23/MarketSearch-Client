@@ -5,6 +5,8 @@ import { MigrateAuctions } from "../../API/Post";
 
 import { URL } from "../../API/Get";
 
+// TODO Finish
+
 function MigrateDropdown({ card, setMigrate }) {
   const players = useContext(AuctionsContext);
   const [target, setTarget] = useState("");

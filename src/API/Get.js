@@ -1,13 +1,12 @@
 import axios from "axios";
-var URL;
+
+let URL = "https://infinite-mesa-46973.herokuapp.com/";
 if (process.env.NODE_ENV === "development") {
   console.log("In Development");
 
   const IP = "192.168.1.25";
   const PORT = "3000";
   URL = `http://${IP}:${PORT}/`;
-} else {
-  URL = "https://infinite-mesa-46973.herokuapp.com/";
 }
 
 function GetAuctions(setData) {

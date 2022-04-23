@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 
 import { Edit, DeleteCard, DeleteImage } from "../../API/Post";
+
 import { CardPrice, CardImage } from "../Card/Card";
 import MigrateDropdown from "../MigrateDropdown/MigrateDropdown";
+
+// TODO Finish
 
 function EditableCard({ card, setEdit }) {
   const [migrating, setMigrate] = useState(false);

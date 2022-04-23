@@ -3,12 +3,11 @@ import "./OpenedCard.css";
 
 import { GetLowestPrice } from "../../Helper/Functions/GetPrice";
 
-import EditableCard from "../EditableCard/EditableCard";
 import { CardImage } from "../Card/Card";
+import EditableCard from "../EditableCard/EditableCard";
+import { AuctionInterface, CardInterface } from "../../Helper/InterfaceObjects";
 
-const CloseIcon = require("../../images/close-icon.svg") as string;
-
-function OpenedCard({ card, setOpen }: any) {
+function OpenedCard({ card, setOpen }: { card: CardInterface; setOpen: any }) {
   const [editable, setEdit] = useState(false);
 
   if (editable) {
@@ -40,7 +39,7 @@ function OpenedCard({ card, setOpen }: any) {
   }
 }
 
-function CardInfo({ card }: any) {
+function CardInfo({ card }: { card: CardInterface }) {
   return (
     <div className="card-opened-info-wrapper">
       <div className="card-opened-info">
@@ -54,7 +53,13 @@ function CardInfo({ card }: any) {
   );
 }
 
-function CardPrice({ auctions, system }: any) {
+function CardPrice({
+  auctions,
+  system,
+}: {
+  auctions: AuctionInterface[];
+  system: string;
+}) {
   var price = GetLowestPrice(auctions);
 
   if (parseInt(price)) {
@@ -71,7 +76,7 @@ function CardPrice({ auctions, system }: any) {
 function CardEdit({ setEdit }: any) {
   return (
     <div className="card-opened-edit-button" onClick={() => setEdit(true)}>
-      <span className="material-symbols-outlined" id="card-opened-edit-button">
+      <span className="material-symbols-outlined" id="card-opened-button">
         edit_note
       </span>
     </div>
@@ -80,12 +85,11 @@ function CardEdit({ setEdit }: any) {
 
 function CardClose({ setOpen }: any) {
   return (
-    <img
-      className="card-opened-close-button"
-      src={CloseIcon}
-      alt={"Close"}
-      onClick={() => setOpen(false)}
-    />
+    <div className="card-opened-close-button" onClick={() => setOpen(false)}>
+      <span className="material-symbols-outlined" id="card-opened-button">
+        close
+      </span>
+    </div>
   );
 }
 

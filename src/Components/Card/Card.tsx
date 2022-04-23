@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-
-import { URL } from "../../API/Get";
-import { GetLowestPrice } from "../../Helper/Functions/GetPrice";
-import OpenedCard from "../OpenedCard/OpenedCard";
-
 import "./Card.css";
 
-function Card({ card }) {
+import { URL } from "../../API/Get.js";
+import { GetLowestPrice } from "../../Helper/Functions/GetPrice";
+
+import OpenedCard from "../OpenedCard/OpenedCard";
+
+import { CardInterface, AuctionInterface } from "../../Helper/InterfaceObjects";
+
+function Card({ card }: { card: CardInterface }) {
   const [open, setOpen] = useState(false);
   if (open) {
     return <OpenedCard card={card} setOpen={setOpen} />;
@@ -15,17 +17,17 @@ function Card({ card }) {
   }
 }
 
-function ClosedCard({ card, setOpen }) {
+function ClosedCard({ card, setOpen }: { card: CardInterface; setOpen: any }) {
   return (
     <div className="card-wrapper" onClick={() => setOpen(true)}>
-      <CardImage card={card} className="player-img" />
+      <CardImage card={card} />
       <CardPrice auctions={card.ps_auctions} system="PSN" />
       <CardPrice auctions={card.xbox_auctions} system="XBOX" />
     </div>
   );
 }
 
-function CardInfo({ card }) {
+function CardInfo({ card }: { card: CardInterface }) {
   return (
     <div className="card-info-wrapper">
       <div className="card-info">
@@ -34,22 +36,20 @@ function CardInfo({ card }) {
         <div className="card-info-tabname">{card.tab_name}</div>
       </div>
       <div className="card-info-prices-wrapper">
-        <CardPrice
-          className="card-info-prices"
-          auctions={card.xbox_auctions}
-          system={"XBOX"}
-        />
-        <CardPrice
-          className="card-info-prices"
-          auctions={card.ps_auctions}
-          system={"PSN"}
-        />
+        <CardPrice auctions={card.xbox_auctions} system={"XBOX"} />
+        <CardPrice auctions={card.ps_auctions} system={"PSN"} />
       </div>
     </div>
   );
 }
 
-function CardPrice({ auctions, system }) {
+function CardPrice({
+  auctions,
+  system,
+}: {
+  auctions: AuctionInterface[];
+  system: string;
+}) {
   var price = GetLowestPrice(auctions);
 
   if (parseInt(price)) {
@@ -63,13 +63,13 @@ function CardPrice({ auctions, system }) {
   );
 }
 
-function CardImage({ card }) {
+function CardImage({ card }: { card: CardInterface }) {
   return (
     <img
       className="card-img"
       src={`${URL}${card.player_name}-${card.collection_name}-${card.page_name}-${card.tab_name}.png`}
       alt=""
-      onError={(e) => {
+      onError={(e: any) => {
         e.target.src = `${URL}unknown-card.png`;
       }}
     />
