@@ -1,8 +1,10 @@
-function GetTotalPrice(cards) {
+import { AuctionInterface, CardInterface } from "../InterfaceObjects";
+
+function GetTotalPrice(cards: CardInterface[]) {
   // Go through every card and get the lowest price
   let total_price_ps = 0;
   let total_price_xbox = 0;
-  cards.forEach((card) => {
+  cards.forEach((card: CardInterface) => {
     const lowest_ps = GetLowestPrice(card.ps_auctions);
     const lowest_xbox = GetLowestPrice(card.xbox_auctions);
     if (parseInt(lowest_ps)) {
@@ -16,10 +18,10 @@ function GetTotalPrice(cards) {
   return { total_price_ps, total_price_xbox };
 }
 
-function GetLowestPrice(data) {
+function GetLowestPrice(data: AuctionInterface[]) {
   let lowest = "None";
   if (Object.keys(data).length) {
-    data.forEach((item) => {
+    data.forEach((item: AuctionInterface) => {
       const item_price = GetPrice(item);
       const item_price_int = parseInt(item_price);
       const lowest_int = parseInt(lowest);
@@ -32,7 +34,7 @@ function GetLowestPrice(data) {
       if (lowest_int >= 100000) {
         if (
           item_price !== "-1" &&
-          (item_price_int > lowest_int || item_price_int < item_price)
+          (item_price_int > lowest_int || item_price_int < parseInt(item_price))
         ) {
           lowest = item_price;
         }
@@ -43,11 +45,11 @@ function GetLowestPrice(data) {
   return lowest;
 }
 
-function GetPrice(card_data) {
-  if (card_data.buyout !== "-1") {
-    return card_data.buyout;
-  } else if (parseInt(card_data.bid) >= 100000) {
-    return card_data.bid;
+function GetPrice(auction_data: AuctionInterface) {
+  if (auction_data.buyout !== "-1") {
+    return auction_data.buyout;
+  } else if (parseInt(auction_data.bid) >= 100000) {
+    return auction_data.bid;
   } else {
     return "-1";
   }

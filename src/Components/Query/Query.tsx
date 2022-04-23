@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import "./Query.css";
 
-import { CardInterface } from "../../Helper/InterfaceObjects.js";
-import AuctionsContext from "../../Helper/AuctionsContext.js";
+import { CardInterface } from "../../Helper/InterfaceObjects";
+import AuctionsContext from "../../Helper/AuctionsContext";
 
 import { Card } from "../Card/Card";
-import { GetAllPageNames } from "../../Helper/Functions/CardHelper.js";
+import { GetAllPageNames } from "../../Helper/Functions/CardHelper";
 import { ShowcaseByPageName } from "../Showcase/Showcase";
 
 const Query = ({ target }: { target: string }) => {
