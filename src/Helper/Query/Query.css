@@ -22,9 +22,8 @@
   height: 90vh;
   width: 100vw;
 
-  overflow-x: hidden;
   overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: auto !important;
 }
 
 /* Hide scrollbar for iOS */

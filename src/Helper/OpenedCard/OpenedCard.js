@@ -70,7 +70,7 @@ function CardPrice({ auctions, system }) {
 function CardEdit({ setEdit }) {
   return (
     <div className="card-opened-edit-button" onClick={() => setEdit(true)}>
-      <span class="material-symbols-outlined" id="card-opened-edit-button">
+      <span className="material-symbols-outlined" id="card-opened-edit-button">
         edit_note
       </span>
     </div>
