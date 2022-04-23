@@ -17,7 +17,13 @@ function Card({ card }: { card: CardInterface }) {
   }
 }
 
-function ClosedCard({ card, setOpen }: { card: CardInterface; setOpen: any }) {
+function ClosedCard({
+  card,
+  setOpen,
+}: {
+  card: CardInterface;
+  setOpen: Function;
+}) {
   return (
     <div className="card-wrapper" onClick={() => setOpen(true)}>
       <CardImage card={card} />

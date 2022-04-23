@@ -7,7 +7,13 @@ import { CardImage } from "../Card/Card";
 import EditableCard from "../EditableCard/EditableCard";
 import { AuctionInterface, CardInterface } from "../../Helper/InterfaceObjects";
 
-function OpenedCard({ card, setOpen }: { card: CardInterface; setOpen: any }) {
+function OpenedCard({
+  card,
+  setOpen,
+}: {
+  card: CardInterface;
+  setOpen: Function;
+}) {
   const [editable, setEdit] = useState(false);
 
   if (editable) {
@@ -73,7 +79,7 @@ function CardPrice({
   );
 }
 
-function CardEdit({ setEdit }: any) {
+function CardEdit({ setEdit }: { setEdit: Function }) {
   return (
     <div className="card-opened-edit-button" onClick={() => setEdit(true)}>
       <span className="material-symbols-outlined" id="card-opened-button">
@@ -83,7 +89,7 @@ function CardEdit({ setEdit }: any) {
   );
 }
 
-function CardClose({ setOpen }: any) {
+function CardClose({ setOpen }: { setOpen: Function }) {
   return (
     <div className="card-opened-close-button" onClick={() => setOpen(false)}>
       <span className="material-symbols-outlined" id="card-opened-button">

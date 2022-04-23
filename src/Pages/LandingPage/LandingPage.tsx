@@ -18,7 +18,13 @@ function LandingPage() {
   );
 }
 
-function Navbar({ target, setTarget }) {
+function Navbar({
+  target,
+  setTarget,
+}: {
+  target: string;
+  setTarget: Function;
+}) {
   return (
     <div className="nav-search-bar">
       <img
@@ -35,16 +41,22 @@ function Navbar({ target, setTarget }) {
         className="nav-logo-img"
         src={GithubLogo}
         alt="Github"
-        onClick={() =>
-          (window.location =
-            "https://github.com/Racorbin23/MarketSearch-Client")
-        }
+        onClick={() => {
+          window.location.href =
+            "https://github.com/Racorbin23/MarketSearch-Client";
+        }}
       />
     </div>
   );
 }
 
-function SearchField({ target, setTarget }) {
+function SearchField({
+  target,
+  setTarget,
+}: {
+  target: string;
+  setTarget: Function;
+}) {
   return (
     <div className="nav-input-wrapper">
       <img className="nav-search-img" src={SearchIcon} alt="Search Icon" />
@@ -52,13 +64,13 @@ function SearchField({ target, setTarget }) {
         className="nav-input"
         placeholder="Search..."
         value={target}
-        onChange={(e) => {
+        onChange={(e: any) => {
           setTarget(e.target.value);
         }}
       />
       {target.length > 0 ? (
         <span
-          class="material-symbols-outlined"
+          className="material-symbols-outlined"
           onClick={() => {
             setTarget("");
           }}
