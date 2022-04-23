@@ -35,16 +35,14 @@ function ShowcaseByPageName({ page_name }) {
       </div>
       <div className="showcase-items">
         {cards.map((card) => (
-          <CardShowcaseItemById id={card._id} key={card._id} />
+          <CardShowcaseItemByCard card={card} key={card._id} />
         ))}
       </div>
     </div>
   );
 }
 
-function CardShowcaseItemById({ id }) {
-  const cards = useContext(AuctionsContext);
-  const card = cards.find((card) => card._id === id);
+function CardShowcaseItemByCard({ card }) {
   return (
     <div className="card-showcase-wrapper">
       <CardImage card={card} />
@@ -60,6 +58,12 @@ function CardShowcaseItemById({ id }) {
       </div>
     </div>
   );
+}
+
+function CardShowcaseItemById({ id }) {
+  const cards = useContext(AuctionsContext);
+  const card = cards.find((card) => card._id === id);
+  return <CardShowcaseItemByCard card={card} />;
 }
 
 export { ShowcaseByID, ShowcaseByPageName };
