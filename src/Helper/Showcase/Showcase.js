@@ -1,5 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+
 import AuctionsContext from "../AuctionsContext";
+
+import OpenedCard from "../OpenedCard/OpenedCard";
 import { CardImage, CardPrice } from "../Card/Card";
 import { GetTotalPrice } from "../../Helper/Functions/GetPrice";
 
@@ -43,21 +46,32 @@ function ShowcaseByPageName({ page_name }) {
 }
 
 function CardShowcaseItemByCard({ card }) {
-  return (
-    <div className="card-showcase-wrapper">
-      <CardImage card={card} />
-      <div className="card-showcase-info">
-        <div>
-          <div>{card.player_name}</div>
-          <div>{card.page_name}</div>
-        </div>
-        <div>
-          <CardPrice auctions={card.ps_auctions} system="PS" />
-          <CardPrice auctions={card.xbox_auctions} system="XBOX" />
+  const [open, setOpen] = useState(false);
+
+  if (open) {
+    return <OpenedCard card={card} setOpen={setOpen} />;
+  } else {
+    return (
+      <div
+        className="card-showcase-wrapper"
+        onClick={() => {
+          setOpen(true);
+        }}
+      >
+        <CardImage card={card} />
+        <div className="card-showcase-info">
+          <div>
+            <div>{card.player_name}</div>
+            <div>{card.page_name}</div>
+          </div>
+          <div>
+            <CardPrice auctions={card.ps_auctions} system="PS" />
+            <CardPrice auctions={card.xbox_auctions} system="XBOX" />
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 function CardShowcaseItemById({ id }) {

@@ -20,7 +20,14 @@ function LandingPage() {
 function Navbar({ target, setTarget }) {
   return (
     <div className="nav-search-bar">
-      <img className="nav-logo-img" src={LogoIcon} alt="Logo" />
+      <img
+        className="nav-logo-img"
+        src={LogoIcon}
+        alt="Logo"
+        onClick={() => {
+          window.location.reload();
+        }}
+      />
       <SearchField target={target} setTarget={setTarget} />
       <img
         title="Come see how the project works!"
@@ -48,6 +55,18 @@ function SearchField({ target, setTarget }) {
           setTarget(e.target.value);
         }}
       />
+      {target.length > 0 ? (
+        <span
+          class="material-symbols-outlined"
+          onClick={() => {
+            setTarget("");
+          }}
+        >
+          close
+        </span>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

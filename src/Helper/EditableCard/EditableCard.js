@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 import { Edit, DeleteCard, DeleteImage } from "../../API/Post";
-import { CardPrice, CardImage } from "./Card";
-import MigrateDropdown from "./MigratableDropdown";
+import { CardPrice, CardImage } from "../Card/Card";
+import MigrateDropdown from "../MigrateDropdown/MigrateDropdown";
 
 function EditableCard({ card, setEdit }) {
   const [migrating, setMigrate] = useState(false);
@@ -59,25 +59,6 @@ function EditableCard({ card, setEdit }) {
             <CardPrice auctions={card.xbox_auctions} system={"XBOX"} />
           </div>
         </div>
-        <div
-          onClick={() => {
-            console.log("Saving data!");
-            // Save data
-            Edit(card._id, playerName, collectionName, pageName, tabName);
-            setEdit(false);
-            window.location.reload();
-          }}
-        >
-          Save
-        </div>
-        <div
-          onClick={() => {
-            console.log("Not saving!");
-            setEdit(false);
-          }}
-        >
-          Cancel
-        </div>
       </div>
       <div>
         <div
@@ -106,6 +87,25 @@ function EditableCard({ card, setEdit }) {
           }}
         >
           Migrate
+        </div>
+        <div
+          onClick={() => {
+            console.log("Saving data!");
+            // Save data
+            Edit(card._id, playerName, collectionName, pageName, tabName);
+            setEdit(false);
+            window.location.reload();
+          }}
+        >
+          Save
+        </div>
+        <div
+          onClick={() => {
+            console.log("Not saving!");
+            setEdit(false);
+          }}
+        >
+          Cancel
         </div>
         {migrating ? (
           <MigrateDropdown card={card} setMigrate={setMigrate} />
