@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/MarketSearch-Client/static/css/main.49902fe5.css",
-    "main.js": "/MarketSearch-Client/static/js/main.c4a3ecd6.js",
+    "main.css": "/MarketSearch-Client/static/css/main.5ae755df.css",
+    "main.js": "/MarketSearch-Client/static/js/main.fc7a1308.js",
     "index.html": "/MarketSearch-Client/index.html",
     "static/media/github-logo.svg": "/MarketSearch-Client/static/media/github-logo.04be58c17b3d5e9744424d414240dd85.svg",
     "static/media/search-icon.svg": "/MarketSearch-Client/static/media/search-icon.613517881309e6d47b7d2d8be639dca5.svg",
     "static/media/close-icon.svg": "/MarketSearch-Client/static/media/close-icon.244b66874c46718f7e0607d3acebaccf.svg",
-    "main.49902fe5.css.map": "/MarketSearch-Client/static/css/main.49902fe5.css.map",
-    "main.c4a3ecd6.js.map": "/MarketSearch-Client/static/js/main.c4a3ecd6.js.map"
+    "main.5ae755df.css.map": "/MarketSearch-Client/static/css/main.5ae755df.css.map",
+    "main.fc7a1308.js.map": "/MarketSearch-Client/static/js/main.fc7a1308.js.map"
   },
   "entrypoints": [
-    "static/css/main.49902fe5.css",
-    "static/js/main.c4a3ecd6.js"
+    "static/css/main.5ae755df.css",
+    "static/js/main.fc7a1308.js"
   ]
 }
