@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import AuctionsContext from "../AuctionsContext.js";
 
 import { Card } from "../Card/Card.js";
+import { GetAllPageNames } from "../Functions/CardHelper.js";
+import { ShowcaseByID, ShowcaseByPageName } from "../Showcase/Showcase.js";
 import "./Query.css";
 
 const Query = ({ target }) => {
@@ -18,9 +20,18 @@ const Query = ({ target }) => {
           items.push(<Card key={i} card={item} />);
         }
       });
+    } else {
+      // Return showcases if target is too small
+      // ["ALTER EGO", "ALTER EGO MASKED"]
+      const page_names = GetAllPageNames(data);
+      const items = page_names.map((page_name, i) => {
+        return <ShowcaseByPageName key={i} page_name={page_name} />;
+      });
+      return <div className="query-showcase-wrapper">{items}</div>;
     }
   } else {
-    items.push(<div class="loader"></div>);
+    // Return loading if data is not loaded from server yet
+    items.push(<div key={0} className="loader"></div>);
   }
   return <div className="query-wrapper">{items}</div>;
 };

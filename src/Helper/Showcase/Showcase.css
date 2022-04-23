@@ -1,0 +1,85 @@
+.showcase-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  align-self: center;
+
+  width: 80vw;
+
+  margin-top: 20px;
+
+  border-style: solid;
+  border-color: rgb(15, 15, 15);
+  border-radius: 20px;
+}
+.showcase-title {
+  position: relative;
+  top: -16px;
+  left: -15vw;
+
+  padding: 5px;
+  background-color: rgb(255, 255, 255);
+  align-self: center;
+}
+
+.showcase-totals-wrapper {
+  display: flex;
+  flex-direction: row;
+
+  width: 50vw;
+  padding: 5px;
+  margin-left: 5vw;
+
+  justify-content: space-between;
+}
+
+.showcase-total {
+}
+
+.showcase-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  overflow-x: scroll;
+
+  width: 100%;
+}
+
+.card-showcase-wrapper {
+  display: flex;
+  flex-direction: row;
+
+  border-radius: 4px;
+
+  margin: 50px;
+
+  height: 210px;
+
+  background-color: #fff;
+  filter: drop-shadow(0px 0px 7px rgba(1, 1, 1, 0.7));
+}
+
+.card-showcase-wrapper:hover {
+  transform: scale(1.1);
+}
+
+.card-showcase-info {
+  display: flex;
+  flex-direction: column;
+
+  padding: 25px;
+  padding-left: 5px;
+
+  justify-content: space-between;
+}
+
+.showcase-items::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.showcase-items {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

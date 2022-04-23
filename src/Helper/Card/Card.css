@@ -1,31 +1,19 @@
 .card-wrapper {
   display: flex;
   flex-direction: column;
-  color: white;
-  background-color: rgb(34, 34, 34);
 
   width: 150px;
-
   margin: 20px;
-  border-radius: 25px 25px 0 0;
 
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  background-color: #fff;
+  filter: drop-shadow(0px 0px 7px rgba(1, 1, 1, 0.7));
 }
 
-.card-wrapper:hover {
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-
-  -ms-transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+.card-wrapper:hover,
+.card-wrapper:active,
+.card-wrapper:focus {
+  transform: translateY(5px);
+  box-shadow: drop-shadow(0px 0px 10px rgba(1, 1, 1, 0.7));
 }
 
 .card-opened-wrapper {
@@ -39,21 +27,9 @@
   justify-content: space-between;
 
   margin: 4px;
-
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  user-select: none;
 }
 
 .card-img {
   height: 210px;
   width: 150px;
-
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  user-select: none;
 }

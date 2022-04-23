@@ -119,6 +119,9 @@ function CardImage({ card }) {
       onError={(e) => {
         e.target.src = `${URL}unknown-card.png`;
       }}
+      onClick={() => {
+        console.log(card._id);
+      }}
     />
   );
 }

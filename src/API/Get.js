@@ -1,6 +1,8 @@
 import axios from "axios";
 var URL;
 if (process.env.NODE_ENV === "development") {
+  console.log("In Development");
+
   const IP = "192.168.1.25";
   const PORT = "3000";
   URL = `http://${IP}:${PORT}/`;

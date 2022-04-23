@@ -1,3 +1,21 @@
+function GetTotalPrice(cards) {
+  // Go through every card and get the lowest price
+  let total_price_ps = 0;
+  let total_price_xbox = 0;
+  cards.forEach((card) => {
+    const lowest_ps = GetLowestPrice(card.ps_auctions);
+    const lowest_xbox = GetLowestPrice(card.xbox_auctions);
+    if (parseInt(lowest_ps)) {
+      total_price_ps += parseInt(lowest_ps);
+    }
+
+    if (parseInt(lowest_xbox)) {
+      total_price_xbox += parseInt(lowest_xbox);
+    }
+  });
+  return { total_price_ps, total_price_xbox };
+}
+
 function GetLowestPrice(data) {
   let lowest = "None";
   if (Object.keys(data).length) {
@@ -35,4 +53,4 @@ function GetPrice(card_data) {
   }
 }
 
-export { GetLowestPrice };
+export { GetLowestPrice, GetTotalPrice };
