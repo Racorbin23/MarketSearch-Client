@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { URL } from "../../API/Get";
-import { GetLowestPrice } from "../Functions/GetPrice";
+import { GetLowestPrice } from "../../Helper/Functions/GetPrice";
 import OpenedCard from "../OpenedCard/OpenedCard";
 
 import "./Card.css";

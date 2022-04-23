@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import "./OpenedCard.css";
 
-import { GetLowestPrice } from "../Functions/GetPrice";
+import { GetLowestPrice } from "../../Helper/Functions/GetPrice";
+
 import EditableCard from "../EditableCard/EditableCard";
 import { CardImage } from "../Card/Card";
 
-import CloseIcon from "../../images/close-icon.svg";
-import "./OpenedCard.css";
+const CloseIcon = require("../../images/close-icon.svg") as string;
 
-function OpenedCard({ card, setOpen }) {
+function OpenedCard({ card, setOpen }: any) {
   const [editable, setEdit] = useState(false);
 
   if (editable) {
@@ -39,7 +40,7 @@ function OpenedCard({ card, setOpen }) {
   }
 }
 
-function CardInfo({ card }) {
+function CardInfo({ card }: any) {
   return (
     <div className="card-opened-info-wrapper">
       <div className="card-opened-info">
@@ -53,7 +54,7 @@ function CardInfo({ card }) {
   );
 }
 
-function CardPrice({ auctions, system }) {
+function CardPrice({ auctions, system }: any) {
   var price = GetLowestPrice(auctions);
 
   if (parseInt(price)) {
@@ -67,7 +68,7 @@ function CardPrice({ auctions, system }) {
   );
 }
 
-function CardEdit({ setEdit }) {
+function CardEdit({ setEdit }: any) {
   return (
     <div className="card-opened-edit-button" onClick={() => setEdit(true)}>
       <span className="material-symbols-outlined" id="card-opened-edit-button">
@@ -77,7 +78,7 @@ function CardEdit({ setEdit }) {
   );
 }
 
-function CardClose({ setOpen }) {
+function CardClose({ setOpen }: any) {
   return (
     <img
       className="card-opened-close-button"

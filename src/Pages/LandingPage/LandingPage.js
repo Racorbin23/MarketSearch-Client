@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import Query from "../../Helper/Query/Query";
+import "./LandingPage.css";
 
 import SearchIcon from "../../images/search-icon.svg";
 import LogoIcon from "../../images/logo.png";
 import GithubLogo from "../../images/github-logo.svg";
-import "./LandingPage.css";
+
+import Query from "../../Components/Query/Query";
 
 // Landing Page is the page users first see when they visit the site.
 function LandingPage() {

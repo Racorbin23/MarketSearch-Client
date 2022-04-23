@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 
-import AuctionsContext from "../AuctionsContext";
+import AuctionsContext from "../../Helper/AuctionsContext";
 import { MigrateAuctions } from "../../API/Post";
 
 import { URL } from "../../API/Get";

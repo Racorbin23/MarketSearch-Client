@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import AuctionsContext from "../AuctionsContext.js";
+import AuctionsContext from "../../Helper/AuctionsContext.js";
 
 import { Card } from "../Card/Card.js";
-import { GetAllPageNames } from "../Functions/CardHelper.js";
-import { ShowcaseByPageName } from "../Showcase/Showcase.js";
+import { GetAllPageNames } from "../../Helper/Functions/CardHelper.js";
+import { ShowcaseByPageName } from "../Showcase/Showcase.tsx";
 
 import "./Query.css";
 
@@ -30,7 +30,7 @@ const Query = ({ target }) => {
         if (i < 15) {
           return <ShowcaseByPageName key={i} page_name={page_name} />;
         } else {
-          return <d></d>;
+          return <></>;
         }
       });
       return <div className="query-showcase-wrapper">{items}</div>;
