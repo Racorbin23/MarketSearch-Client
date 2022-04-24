@@ -9,13 +9,13 @@ if (process.env.NODE_ENV === "development") {
   URL = `http://${IP}:${PORT}/`;
 }
 
-function GetAuctions(setData) {
+function GetAuctions(setData: Function) {
   axios.get(URL + "cards/getAllAuctions").then((res) => {
     setData(res.data);
   });
 }
 
-function GetSettings(setData) {
+function GetSettings(setData: Function) {
   axios.get(URL + "settings/get").then((res) => {
     setData(res.data);
   });

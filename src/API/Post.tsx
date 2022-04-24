@@ -1,11 +1,12 @@
 import axios from "axios";
+import { CardInterface } from "../Helper/InterfaceObjects";
 import { URL } from "./Get";
 
 function UpdateSettings(
-  blacklisted_collection_names,
-  blacklisted_page_names,
-  blacklisted_tab_names,
-  active
+  blacklisted_collection_names: string[],
+  blacklisted_page_names: string[],
+  blacklisted_tab_names: string[],
+  active: any
 ) {
   axios
     .post(URL + "settings/updateProfile", {
@@ -18,19 +19,13 @@ function UpdateSettings(
       console.log(res);
     });
 }
-
-function SetConfigActive(config_name, active) {
-  axios
-    .post(URL + "settings/setActive", {
-      name: config_name,
-      active: active,
-    })
-    .then((res) => {
-      console.log(res);
-    });
-}
-
-function Edit(id, newName, newCollectionName, newPageName, newTabName) {
+function Edit(
+  id: string,
+  newName: string,
+  newCollectionName: string,
+  newPageName: string,
+  newTabName: string
+) {
   axios
     .post(URL + "cards/edit", {
       id: id,
@@ -44,7 +39,7 @@ function Edit(id, newName, newCollectionName, newPageName, newTabName) {
     });
 }
 
-function UploadImage(id, image) {
+function UploadImage(id: string, image: File) {
   axios
     .post(URL + "cards/uploadImage", {
       id: id,
@@ -55,7 +50,7 @@ function UploadImage(id, image) {
     });
 }
 
-function MigrateAuctions(old_card, new_card) {
+function MigrateAuctions(old_card: CardInterface, new_card: CardInterface) {
   axios
     .post(URL + "cards/migrateAuctions", {
       old_card_id: old_card._id,
@@ -66,7 +61,7 @@ function MigrateAuctions(old_card, new_card) {
     });
 }
 
-function DeleteImage(id) {
+function DeleteImage(id: string) {
   axios
     .post(URL + "cards/deleteImage", {
       id: id,
@@ -76,7 +71,7 @@ function DeleteImage(id) {
     });
 }
 
-function DeleteCard(id) {
+function DeleteCard(id: string) {
   axios
     .post(URL + "cards/delete", {
       id: id,
@@ -88,7 +83,6 @@ function DeleteCard(id) {
 
 export {
   UpdateSettings,
-  SetConfigActive,
   Edit,
   DeleteCard,
   DeleteImage,
