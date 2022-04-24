@@ -1,4 +1,7 @@
+import React from "react";
+
 import { CardInterface } from "../InterfaceObjects";
+import { Card, LargeCard } from "../../Components/Card/Card";
 
 function GetAllPageNames(cards: CardInterface[]) {
   const page_names: string[] = [];
@@ -10,4 +13,14 @@ function GetAllPageNames(cards: CardInterface[]) {
   return page_names;
 }
 
-export { GetAllPageNames };
+function GetCard(card: CardInterface) {
+  var isMobile = window.matchMedia("(max-width: 900px)").matches;
+
+  if (isMobile) {
+    return <Card card={card} key={card._id} />;
+  } else {
+    return <LargeCard card={card} key={card._id} />;
+  }
+}
+
+export { GetAllPageNames, GetCard };

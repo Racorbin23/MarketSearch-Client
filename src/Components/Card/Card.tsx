@@ -17,6 +17,35 @@ function Card({ card }: { card: CardInterface }) {
   }
 }
 
+function LargeCard({ card }: { card: CardInterface }) {
+  const [open, setOpen] = useState(false);
+
+  if (open) {
+    return <OpenedCard card={card} setOpen={setOpen} />;
+  } else {
+    return (
+      <div
+        className="card-showcase-wrapper"
+        onClick={() => {
+          setOpen(true);
+        }}
+      >
+        <CardImage card={card} />
+        <div className="card-showcase-info">
+          <div>
+            <div>{card.player_name}</div>
+            <div>{card.page_name}</div>
+          </div>
+          <div>
+            <CardPrice auctions={card.ps_auctions} system="PS" />
+            <CardPrice auctions={card.xbox_auctions} system="XBOX" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
 function ClosedCard({
   card,
   setOpen,
@@ -82,4 +111,4 @@ function CardImage({ card }: { card: CardInterface }) {
   );
 }
 
-export { Card, CardImage, CardPrice, CardInfo };
+export { Card, CardImage, CardPrice, CardInfo, LargeCard };

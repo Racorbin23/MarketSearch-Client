@@ -1,15 +1,13 @@
 import React, { useContext, useState } from "react";
+import "./MigrateDropdown.css";
 
+import { CardImage, CardPrice, LargeCard } from "../Card/Card";
 import AuctionsContext from "../../Helper/AuctionsContext";
 import { MigrateAuctions } from "../../API/Post";
 
-import { URL } from "../../API/Get";
-
-// TODO Finish
-
 function MigrateDropdown({ card, setMigrate }) {
   const players = useContext(AuctionsContext);
-  const [target, setTarget] = useState("");
+  const [target, setTarget] = useState(card.player_name.split(" ")[0]);
   const cards = [];
 
   if (target.length > 3) {
@@ -23,14 +21,20 @@ function MigrateDropdown({ card, setMigrate }) {
               // Migrate data
               MigrateAuctions(card, player);
               setMigrate(false);
+              window.location.reload();
             }}
           >
-            <img
-              className="migrate-card-img"
-              src={`${URL}${player.player_name}-${player.collection_name}-${player.page_name}-${player.tab_name}.png`}
-              alt="PLAYER"
-            />
-            <div>{player.player_name}</div>
+            <CardImage card={player} />
+            <div className="card-showcase-info">
+              <div>
+                <div>{player.player_name}</div>
+                <div>{player.page_name}</div>
+              </div>
+              <div>
+                <CardPrice auctions={player.ps_auctions} system="PS" />
+                <CardPrice auctions={player.xbox_auctions} system="XBOX" />
+              </div>
+            </div>
           </div>
         );
       }
@@ -39,12 +43,24 @@ function MigrateDropdown({ card, setMigrate }) {
 
   return (
     <div className="migrate-wrapper">
-      <input
-        value={target}
-        onChange={(e) => {
-          setTarget(e.target.value);
-        }}
-      />
+      <div className="migrate-top-wrapper">
+        <LargeCard card={card} />
+        <input
+          className="migrate-input"
+          value={target}
+          onChange={(e) => {
+            setTarget(e.target.value);
+          }}
+        />
+        <span
+          class="material-symbols-outlined"
+          onClick={() => {
+            setMigrate(false);
+          }}
+        >
+          close
+        </span>
+      </div>
       <div className="migrate-items">{cards}</div>
     </div>
   );

@@ -4,7 +4,7 @@ import "./Query.css";
 import { CardInterface } from "../../Helper/InterfaceObjects";
 import AuctionsContext from "../../Helper/AuctionsContext";
 
-import { Card } from "../Card/Card";
+import { LargeCard } from "../Card/Card";
 import { GetAllPageNames } from "../../Helper/Functions/CardHelper";
 import { ShowcaseByPageName } from "../Showcase/Showcase";
 
@@ -19,7 +19,7 @@ const Query = ({ target }: { target: string }) => {
       data.forEach((item: CardInterface, i: number) => {
         // Loop through all cards and check if names match
         if (item.player_name.toLowerCase().includes(target.toLowerCase())) {
-          items.push(<Card key={i} card={item} />);
+          items.push(<LargeCard key={i} card={item} />);
         }
       });
     } else {

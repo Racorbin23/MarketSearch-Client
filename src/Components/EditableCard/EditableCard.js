@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./EditableCard.css";
 
 import { Edit, DeleteCard, DeleteImage } from "../../API/Post";
 
@@ -30,7 +31,6 @@ function EditableCard({ card, setEdit }) {
                 />
               </div>
               <div className="card-opened-info-collectionname">
-                {card.collection_name}
                 <input
                   value={collectionName}
                   onChange={(e) => {
@@ -63,8 +63,17 @@ function EditableCard({ card, setEdit }) {
           </div>
         </div>
       </div>
-      <div>
+      <div className="card-opened-edit-buttons">
         <div
+          className="card-opened-button"
+          onClick={() => {
+            console.log("Uploading card image!");
+          }}
+        >
+          Upload New Image
+        </div>
+        <div
+          className="card-opened-button"
           onClick={() => {
             console.log("Deleting card image!");
             DeleteImage(card._id);
@@ -75,6 +84,7 @@ function EditableCard({ card, setEdit }) {
           Delete Image
         </div>
         <div
+          className="card-opened-button"
           onClick={() => {
             console.log("Deleting card!");
             DeleteCard(card._id);
@@ -85,6 +95,7 @@ function EditableCard({ card, setEdit }) {
           Delete Card
         </div>
         <div
+          className="card-opened-button"
           onClick={() => {
             setMigrate(true);
           }}
@@ -92,6 +103,7 @@ function EditableCard({ card, setEdit }) {
           Migrate
         </div>
         <div
+          className="card-opened-button"
           onClick={() => {
             console.log("Saving data!");
             // Save data
@@ -103,6 +115,7 @@ function EditableCard({ card, setEdit }) {
           Save
         </div>
         <div
+          className="card-opened-button"
           onClick={() => {
             console.log("Not saving!");
             setEdit(false);
