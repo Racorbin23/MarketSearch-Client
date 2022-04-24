@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import AuctionsContext from "./Helper/AuctionsContext";
+import { GetAuctions } from "./API/Get";
 
 import LandingPage from "./Pages/LandingPage/LandingPage";
-
-import { GetAuctions } from "./API/Get";
 
 function App() {
   const [data, setData] = useState({});

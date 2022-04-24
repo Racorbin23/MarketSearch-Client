@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./Showcase.css";
 
 import AuctionsContext from "../../Helper/AuctionsContext";
 import { GetTotalPrice } from "../../Helper/Functions/GetPrice";
 
 import OpenedCard from "../OpenedCard/OpenedCard";
-import { CardImage, CardPrice } from "../Card/Card";
+import { CardImage, CardPrice, Card } from "../Card/Card";
 import { CardInterface } from "../../Helper/InterfaceObjects";
 
 function ShowcaseByID({ card_ids }: { card_ids: number[] }) {
@@ -20,6 +20,7 @@ function ShowcaseByID({ card_ids }: { card_ids: number[] }) {
 
 function ShowcaseByPageName({ page_name }: { page_name: string }) {
   const players: any = useContext(AuctionsContext);
+
   if (players.length === 0) {
     return <></>;
   }
@@ -27,6 +28,7 @@ function ShowcaseByPageName({ page_name }: { page_name: string }) {
     (card: CardInterface) => card.page_name === page_name
   );
   const { total_price_ps, total_price_xbox } = GetTotalPrice(cards);
+
   return (
     <div className="showcase-wrapper">
       <div className="showcase-title">{page_name}</div>
@@ -39,14 +41,23 @@ function ShowcaseByPageName({ page_name }: { page_name: string }) {
         </div>
       </div>
       <div className="showcase-items">
-        {cards.map((card: CardInterface) => (
-          <CardShowcaseItemByCard card={card} key={card._id} />
-        ))}
+        {cards.map((card: CardInterface) => GetCard(card))}
       </div>
     </div>
   );
 }
 
+function GetCard(card: CardInterface) {
+  var isMobile = window.matchMedia("(max-width: 900px)").matches;
+
+  if (isMobile) {
+    return <Card card={card} key={card._id} />;
+  } else {
+    return <CardShowcaseItemByCard card={card} key={card._id} />;
+  }
+}
+
+// TODO - Move to card file
 function CardShowcaseItemByCard({ card }: { card: CardInterface }) {
   const [open, setOpen] = useState(false);
 

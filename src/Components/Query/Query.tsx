@@ -31,14 +31,14 @@ const Query = ({ target }: { target: string }) => {
         if (i < 15) {
           return <ShowcaseByPageName key={i} page_name={page_name} />;
         } else {
-          return <></>;
+          return <div key={i}></div>;
         }
       });
       return <div className="query-showcase-wrapper">{items}</div>;
     }
   } else {
     // Return loading if data is not loaded from server yet
-    items.push(<div key={99} className="loader"></div>);
+    items.push(<div key={-1} className="loader"></div>);
   }
   return <div className="query-wrapper">{items}</div>;
 };
