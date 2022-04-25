@@ -122,10 +122,14 @@
 
 @supports (-webkit-touch-callout: none) {
   /* CSS specific to iOS devices */
-
-  .card-opened-bottom {
+  .card-opened-bottom,
+  .query-showcase-wrapper {
     display: flex;
     flex-direction: column;
     margin-bottom: 11vh;
+  }
+
+  .query-showcase-wrapper {
+    padding-bottom: 10vh;
   }
 }
