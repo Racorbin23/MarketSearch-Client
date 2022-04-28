@@ -63,3 +63,36 @@ div {
     transform: rotate(360deg);
   }
 }
+
+/*
+* Fixes iOS issue of content
+* not being displayed when
+* on iOS
+*/
+
+@supports (-webkit-touch-callout: none) {
+  /* CSS specific to iOS devices */
+  .card-opened-bottom,
+  .query-showcase-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 11vh;
+  }
+
+  .query-showcase-wrapper {
+    padding-bottom: 10vh;
+  }
+
+  .card-opened-edit-buttons {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(80px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+    margin-bottom: 10vh;
+    width: 80vw;
+    height: 30vh;
+    align-self: center;
+    align-items: center;
+    justify-items: center;
+  }
+}

@@ -39,11 +39,31 @@ function Edit(
     });
 }
 
-function UploadImage(id: string, image: File) {
+function UploadImageFile(
+  player_name: string,
+  collection_name: string,
+  page_name: string,
+  tab_name: string,
+  image: File
+) {
   axios
-    .post(URL + "cards/uploadImage", {
-      id: id,
+    .post(URL + "cards/uploadImageFile", {
+      player_name: player_name,
+      collection_name: collection_name,
+      page_name: page_name,
+      tab_name: tab_name,
       image: image,
+    })
+    .then((res) => {
+      console.log(res);
+    });
+}
+
+function UploadImageLink(id: string, image: string) {
+  axios
+    .post(URL + "cards/uploadImageLink", {
+      link: image,
+      id: id,
     })
     .then((res) => {
       console.log(res);
@@ -86,6 +106,7 @@ export {
   Edit,
   DeleteCard,
   DeleteImage,
-  UploadImage,
+  UploadImageLink,
+  UploadImageFile,
   MigrateAuctions,
 };

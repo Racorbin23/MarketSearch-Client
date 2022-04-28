@@ -1,5 +1,5 @@
 interface CardInterface {
-  _id: number;
+  _id: string;
   player_name: string;
   page_name: string;
   collection_name: string;
@@ -9,7 +9,7 @@ interface CardInterface {
 }
 
 interface AuctionInterface {
-  _id: number;
+  _id: string;
   time_posted: string;
   bid: string;
   buyout: string;

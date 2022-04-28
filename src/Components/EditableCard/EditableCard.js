@@ -4,12 +4,15 @@ import "./EditableCard.css";
 import { Edit, DeleteCard, DeleteImage } from "../../API/Post";
 
 import { CardPrice, CardImage } from "../Card/Card";
+import ImageUploader from "../ImageUploader/ImageUploader";
 import MigrateDropdown from "../MigrateDropdown/MigrateDropdown";
 
 // TODO Finish
 
 function EditableCard({ card, setEdit }) {
   const [migrating, setMigrate] = useState(false);
+  const [uploadingImg, setUploadImg] = useState(false);
+
   const [playerName, setName] = useState(card.player_name);
   const [collectionName, setCollection] = useState(card.collection_name);
   const [pageName, setPage] = useState(card.page_name);
@@ -68,6 +71,7 @@ function EditableCard({ card, setEdit }) {
           className="card-opened-button"
           onClick={() => {
             console.log("Uploading card image!");
+            setUploadImg(true);
           }}
         >
           Upload New Image
@@ -128,6 +132,7 @@ function EditableCard({ card, setEdit }) {
         ) : (
           <div></div>
         )}
+        {uploadingImg ? <ImageUploader card={card} /> : <div></div>}
       </div>
     </div>
   );

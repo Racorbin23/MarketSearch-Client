@@ -8,11 +8,11 @@ import { GetTotalPrice } from "../../Helper/Functions/GetPrice";
 import { LargeCard } from "../Card/Card";
 import { CardInterface } from "../../Helper/InterfaceObjects";
 
-function ShowcaseByID({ card_ids }: { card_ids: number[] }) {
+function ShowcaseByID({ card_ids }: { card_ids: string[] }) {
   return (
     <div className="showcase-wrapper">
-      {card_ids.map((id: number) => (
-        <CardShowcaseItemById id={id} key={id} />
+      {card_ids.map((id: string, i: number) => (
+        <CardShowcaseItemById id={id} key={i} />
       ))}
     </div>
   );
@@ -47,7 +47,7 @@ function ShowcaseByPageName({ page_name }: { page_name: string }) {
   );
 }
 
-function CardShowcaseItemById({ id }: { id: number }) {
+function CardShowcaseItemById({ id }: { id: string }) {
   const cards: any = useContext(AuctionsContext);
   const card = cards.find((card: CardInterface) => card._id === id);
   return <LargeCard card={card} />;
