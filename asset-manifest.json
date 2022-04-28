@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/MarketSearch-Client/static/css/main.aeff0307.css",
-    "main.js": "/MarketSearch-Client/static/js/main.ada7a4b8.js",
+    "main.css": "/MarketSearch-Client/static/css/main.ea3c69b7.css",
+    "main.js": "/MarketSearch-Client/static/js/main.bb11c655.js",
     "index.html": "/MarketSearch-Client/index.html",
     "static/media/github-logo.svg": "/MarketSearch-Client/static/media/github-logo.04be58c17b3d5e9744424d414240dd85.svg",
     "static/media/search-icon.svg": "/MarketSearch-Client/static/media/search-icon.613517881309e6d47b7d2d8be639dca5.svg",
-    "main.aeff0307.css.map": "/MarketSearch-Client/static/css/main.aeff0307.css.map",
-    "main.ada7a4b8.js.map": "/MarketSearch-Client/static/js/main.ada7a4b8.js.map"
+    "main.ea3c69b7.css.map": "/MarketSearch-Client/static/css/main.ea3c69b7.css.map",
+    "main.bb11c655.js.map": "/MarketSearch-Client/static/js/main.bb11c655.js.map"
   },
   "entrypoints": [
-    "static/css/main.aeff0307.css",
-    "static/js/main.ada7a4b8.js"
+    "static/css/main.ea3c69b7.css",
+    "static/js/main.bb11c655.js"
   ]
 }
