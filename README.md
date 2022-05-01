@@ -32,14 +32,6 @@ Deployed with Heroku and Github page which you can test live at https://racorbin
 ## Usage
 You will also need to setup a local backend connection by cloning MarketSearch-Server with local version of the database running. After cloning the Client and setting up the backend and database locally you can make your own database of cards by running the MarketSearch-Bot which will gather the data and upload it to the local database.
 
-## Credits
-
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
-
 ## License
 
 MIT License
